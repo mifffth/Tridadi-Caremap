@@ -72,6 +72,24 @@
         "lon": 110.343759628869
     },
     {
+        "nama": "Deeja Clinic",
+        "tipe": "Klinik",
+        "lat": -7.7198034064029635, 
+        "lon": 110.35559901456641
+    },
+    {
+        "nama": "Naavagreen Natural Skincare Sleman",
+        "tipe": "Klinik",
+        "lat": -7.72273477327398, 
+        "lon": 110.36195670534018
+    },
+    {
+        "nama": "Aralia Beauty Center",
+        "tipe": "Klinik",
+        "lat": -7.718993217978021, 
+        "lon": 110.36770213145931
+    },
+    {
         "nama": "Puskeswan Sleman dan Melati",
         "tipe": "Puskesmas",
         "lat": -7.698996288969164,

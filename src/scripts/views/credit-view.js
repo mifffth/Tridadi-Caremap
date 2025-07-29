@@ -30,7 +30,7 @@ export class CreditView {
         </div>
 
         <div class="credit-text">
-            <p>Proyek WebGIS ini dikembangkan sebagai bagian dari program <strong>Kuliah Kerja Nyata (KKN) PPM-UGM 2025 Periode II</strong> dyang
+            <p>Proyek WebGIS ini dikembangkan sebagai bagian dari program <strong>Kuliah Kerja Nyata (KKN) PPM-UGM 2025 Periode II</strong> yang
                 dilaksanakan di Kalurahan Tridadi, Kabupaten Sleman, Daerah Istimewa Yogyakarta.</p>
             <p>Data peta bersumber dari <a href="https://www.openstreetmap.org/#map=17/-7.723548/110.358798"
                     target="_blank">OpenStreetMap</a> dan pengembangan menggunakan <strong>Webpack</strong> 

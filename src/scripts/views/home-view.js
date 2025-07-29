@@ -177,11 +177,11 @@ export class HomeView {
       shadowSize: [41, 41],
     });
 
-    L.marker([-7.7125, 110.3503])
+    L.marker([-7.713206522583192, 110.35674613754897])
       .addTo(map)
       .bindPopup(
-        "<b>Kantor Kalurahan Tridadi</b><br>Pusat pemerintahan di Tridadi, Sleman."
-      )
+        `<b><a href="https://tridadisid.slemankab.go.id/home/" target="_blank" rel="noopener noreferrer">Kantor Kalurahan Tridadi</a></b><br>Pusat pemerintahan di Tridadi, Sleman.`
+      )      
       .openPopup();
 
     fetch("./data/batas_dusun.geojson")
