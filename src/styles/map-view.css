@@ -1,0 +1,98 @@
+#map-container {
+  width: 100%;
+  flex: 1;
+}
+
+.leaflet-control-layers {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.leaflet-control-layers-toggle {
+  background-image: url(https://unpkg.com/leaflet@1.9.4/dist/images/layers.png);
+  width: 36px;
+  height: 36px;
+}
+
+.leaflet-control-layers .leaflet-control-layers-list {
+  padding: 8px;
+}
+
+.leaflet-control-layers-selector {
+  margin-right: 5px;
+}
+
+.leaflet-control-custom {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.leaflet-control-custom:hover {
+  background-color: #f4f4f4;
+}
+
+.my-custom-pin {
+  border: none;
+  background: transparent;
+}
+
+.delete-marker-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.delete-marker-button:hover {
+  background-color: #c82333;
+}
+
+.user-marker-container {
+  border: none;
+  background: transparent;
+}
+
+.user-marker-pulse {
+  background-color: #007bff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.5);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+.error-message {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffcccc;
+  color: #cc0000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1001;
+  font-weight: bold;
+}
