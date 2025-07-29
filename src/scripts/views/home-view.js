@@ -18,7 +18,7 @@ export class HomeView {
 
     <div class="welcome-content">
         <h2 class="text-5xl font-bold">Selamat Datang</h2>
-        <p class="mb-6">
+        <p class="mt-6">
             WebGIS ini dirancang untuk memvisualisasikan persebaran fasilitas kesehatan seperti rumah sakit,
             puskesmas, apotek, dan fasilitas kesehatan lainnya di wilayah Kelurahan Tridadi, Sleman, Daerah Istimewa
             Yogyakarta
