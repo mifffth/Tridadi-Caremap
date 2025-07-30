@@ -38,8 +38,8 @@
     {
         "nama": "Apotek Indika",
         "tipe": "Apotek",
-        "lat": -7.712806019329923,
-        "lon": 110.34364389212794
+        "lat": -7.713078995307587,
+        "lon":  110.34365256695796
     },
     {
         "nama": "Apotek S3W Farma",
@@ -56,20 +56,20 @@
     {
         "nama": "Puskesmas Pembantu Tridadi Sleman",
         "tipe": "Puskesmas",
-        "lat": -7.717895098093984,
-        "lon": 110.35876884532051
+        "lat": -7.71815322510622,
+        "lon": 110.35879451314081
     },
     {
         "nama": "Klinik Tridadi Peduli Sehat (FKTP Dr. Trisnina)",
         "tipe": "Klinik",
-        "lat": -7.716955715479557,
-        "lon": 110.34536338117213
+        "lat": -7.717171725120011, 
+        "lon": 110.34533102046696
     },
     {
         "nama": "Klinik Gigi Dentes Tridadi",
         "tipe": "Klinik",
-        "lat": -7.71272471086813,
-        "lon": 110.343759628869
+        "lat": -7.712919958877777,
+        "lon": 110.34374526246083
     },
     {
         "nama": "Deeja Clinic",
@@ -84,22 +84,16 @@
         "lon": 110.36195670534018
     },
     {
-        "nama": "Aralia Beauty Center",
-        "tipe": "Klinik",
-        "lat": -7.718993217978021, 
-        "lon": 110.36770213145931
-    },
-    {
         "nama": "Puskeswan Sleman dan Melati",
         "tipe": "Puskesmas",
-        "lat": -7.698996288969164,
-        "lon": 110.34800494188617
+        "lat": -7.699224528558163,
+        "lon":  110.3479725349605
     },
     {
         "nama": "UPT Pengelolaan Obat dan Alat Kesehatan Dinkes Sleman",
         "tipe": "Lainnya",
-        "lat": -7.717912001195591,
-        "lon": 110.35919431793398
+        "lat": -7.718190092580714, 
+        "lon": 110.35914470961382
     },
     {
         "nama": "Dinas Kesehatan Kabupaten Sleman",
