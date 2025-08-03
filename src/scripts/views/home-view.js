@@ -94,7 +94,7 @@ export class HomeView {
             .map(
               (item) => `
             <div class="image-card">
-              <img src="${item.src}" alt="${item.label}" class="gallery-img" data-full="${item.src}">
+              <img src="${item.src}" loading="lazy" alt="${item.label}" class="gallery-img" data-full="${item.src}">
               <div class="overlay-text">
                 <a href="https://www.google.com/maps/search/?api=1&query=${item.lat},${item.lon}" 
                   target="_blank" 
@@ -126,7 +126,7 @@ export class HomeView {
 
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
         <div class="relative">
-            <img id="modal-image" src="" alt="Preview" class="max-h-[90vh] rounded-xl shadow-lg">
+            <img id="modal-image" loading="lazy" src="" alt="Preview" class="max-h-[90vh] rounded-xl shadow-lg">
             <button id="modal-close" class="absolute top-2 right-2 bg-white rounded-full p-1 hover:bg-gray-200 text-black">
                 ✕
             </button>
@@ -135,20 +135,22 @@ export class HomeView {
     `;
 
     const map = L.map("map-home").setView([-7.7125, 110.3503], 15);
-
+    
     const baseLayers = {
-      OpenStreetMap: L.tileLayer(
+      "Open Street Map": L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
           attribution: "&copy; OpenStreetMap",
         }
       ),
-      OpenTopoMap: L.tileLayer(
+
+      "Open Topo Map": L.tileLayer(
         "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
         {
           attribution: "Map data: &copy; OpenTopoMap contributors",
         }
       ),
+
       "Esri World Imagery": L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         {
@@ -158,7 +160,7 @@ export class HomeView {
       ),
     };
 
-    baseLayers["OpenStreetMap"].addTo(map);
+    baseLayers["Open Street Map"].addTo(map);
 
     const layersControl = L.control
       .layers(baseLayers, null, {
@@ -181,7 +183,7 @@ export class HomeView {
       .addTo(map)
       .bindPopup(
         `<b><a href="https://tridadisid.slemankab.go.id/home/" target="_blank" rel="noopener noreferrer">Kantor Kalurahan Tridadi</a></b><br>Pusat pemerintahan di Tridadi, Sleman.`
-      )      
+      )
       .openPopup();
 
     fetch("./data/batas_dusun.geojson")

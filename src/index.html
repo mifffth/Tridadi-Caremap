@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="WebGIS interaktif untuk menampilkan persebaran fasilitas kesehatan di Kalurahan Tridadi, Sleman, lengkap dengan informasi lokasi dan tipe layanan." />
   <title>Tridadi CareMap</title>
 
   <link rel="stylesheet" href="./styles/styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="manifest" href="app.webmanifest" />
-  <link rel="icon" href="icons/icon-512x512.png">
+  <link rel="icon" href="icons/icon-512x512.webp">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.css"
     crossorigin="anonymous" />
@@ -33,7 +35,7 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
-  
+
   <header>
     <a href="javascript:void(0)" class="skip-link">Lewati ke konten utama</a>
 
@@ -62,18 +64,18 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
       <div class="flex space-x-6 text-2xl mt-2">
         <a href="https://www.instagram.com/pandriberseri" target="_blank" aria-label="Instagram"
-           class="text-white hover:text-white transition-transform transform hover:scale-110">
+          class="text-white hover:text-white transition-transform transform hover:scale-110">
           <i class="fa-brands fa-instagram"></i>
         </a>
         <a href="mailto:pandriberseri.kknppmugm@gmail.com" aria-label="Email"
-           class="text-white hover:text-white transition-transform transform hover:scale-110">
+          class="text-white hover:text-white transition-transform transform hover:scale-110">
           <i class="fa-regular fa-envelope"></i>
         </a>
       </div>
       <p class="text-sm text-center tracking-wide mb-2 mt-2">KKN PPM UGM YO021 2025</p>
     </div>
   </footer>
-  
+
   <script>
     const toggleBtn = document.getElementById("menu-toggle");
     const nav = document.getElementById("main-nav");

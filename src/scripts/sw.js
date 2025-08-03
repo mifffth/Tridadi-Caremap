@@ -32,7 +32,23 @@ registerRoute(
 );
 
 registerRoute(
-  ({ request, url }) => request.mode === 'navigate' &&
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images-cache',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60, 
+        maxEntries: 60,
+      }),
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  }),
+);
+
+registerRoute(
+  ({ request }) => request.mode === 'navigate' &&
   new NetworkFirst({
     cacheName: 'pages-cache',
     plugins: [new CacheableResponsePlugin({ statuses: [200] })],

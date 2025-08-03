@@ -22,23 +22,29 @@ function renderView() {
         if (footer) footer.style.display = "block";
       }
 
-    document.startViewTransition(() => {
+    document.startViewTransition(async() => {
         let view = null;
         let presenter = null;
         switch (hash) {
             case '#/home':
+                const { HomeView } = await import('./views/home-view.js');
+                const { HomePresenter } = await import('./presenters/home-presenter.js');
                 view = new HomeView(main);
                 presenter = new HomePresenter();
                 break;
-            case '#/map':
+              case '#/map':
+                const { MapView } = await import('./views/map-view.js');
+                const { MapPresenter } = await import('./presenters/map-presenter.js');
                 view = new MapView(main);
                 presenter = new MapPresenter();
                 break;
-            case '#/credit':
+              case '#/credit':
+                const { CreditView } = await import('./views/credit-view.js');
+                const { CreditPresenter } = await import('./presenters/credit-presenter.js');
                 view = new CreditView(main);
                 presenter = new CreditPresenter();
                 break;
-            default:
+                default:
                 view = new NotFoundView(main);
                 presenter = new NotFoundPresenter();
         }

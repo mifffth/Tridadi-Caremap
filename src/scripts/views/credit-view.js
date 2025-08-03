@@ -23,7 +23,7 @@ export class CreditView {
                 <img src="icons/Logo_KKN_UGM.png" alt="Logo KKN UGM" />
             </a>
             <a href="https://www.instagram.com/pandriberseri" target="_blank">
-                <img src="icons/Logo_Pandri.png" alt="Logo Pandri Berseri" />
+                <img src="icons/Logo_Pandri.webp" alt="Logo Pandri Berseri" />
             </a>
 
         </div>

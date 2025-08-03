@@ -36,6 +36,32 @@ export class MapView {
       );
     }
 
+    const baseLayers = {
+      "Open Street Map": L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution: "&copy; OpenStreetMap",
+        }
+      ),
+
+      "Open Topo Map": L.tileLayer(
+        "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+        {
+          attribution: "Map data: &copy; OpenTopoMap contributors",
+        }
+      ),
+
+      "Esri World Imagery": L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          attribution:
+            "Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+        }
+      ),
+    };
+
+    baseLayers["Open Street Map"].addTo(this.map);
+
     L.Marker.prototype.options.icon = L.icon({
       iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
       shadowUrl:
@@ -45,28 +71,6 @@ export class MapView {
       popupAnchor: [1, -34],
       shadowSize: [41, 41],
     });
-
-    const baseLayers = {
-      OpenStreetMap: L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-          attribution: "&copy; OpenStreetMap",
-        }
-      ).addTo(this.map),
-      OpenTopoMap: L.tileLayer(
-        "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
-        {
-          attribution: "Map data: &copy; OpenTopoMap contributors",
-        }
-      ),
-      "Esri World Imagery": L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        {
-          attribution:
-            "Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
-        }
-      ),
-    };
 
     this.loadFaskesData(baseLayers);
     this.addLocationControl();
@@ -91,9 +95,13 @@ export class MapView {
         position: "topleft",
       },
       onAdd: () => {
-        const container = L.DomUtil.create("div", "leaflet-bar search-container");
+        const container = L.DomUtil.create(
+          "div",
+          "leaflet-bar search-container"
+        );
         const button = L.DomUtil.create("button", "leaflet-bar", container);
-        button.innerHTML = '<i class="fa-solid fa-magnifying-glass" style="font-size: 13px;"></i>';
+        button.innerHTML =
+          '<i class="fa-solid fa-magnifying-glass" style="font-size: 13px;"></i>';
         button.setAttribute("aria-label", "Cari faskes");
         button.style.backgroundColor = "white";
         button.style.color = "black";
@@ -109,7 +117,11 @@ export class MapView {
         input.style.marginLeft = "8px";
         input.style.padding = "4px";
 
-        const suggestionList = L.DomUtil.create("ul", "search-suggestions", container);
+        const suggestionList = L.DomUtil.create(
+          "ul",
+          "search-suggestions",
+          container
+        );
         suggestionList.style.display = "none";
 
         let expanded = false;
@@ -130,9 +142,10 @@ export class MapView {
           const keyword = input.value.trim().toLowerCase();
           if (!keyword) return;
 
-          const results = this.faskesMarkers.filter((item) =>
-            item.nama.toLowerCase().includes(keyword) ||
-            item.tipe.toLowerCase().includes(keyword)
+          const results = this.faskesMarkers.filter(
+            (item) =>
+              item.nama.toLowerCase().includes(keyword) ||
+              item.tipe.toLowerCase().includes(keyword)
           );
 
           if (results.length > 0) {
@@ -184,9 +197,10 @@ export class MapView {
             return;
           }
 
-          const matches = this.faskesMarkers.filter(item =>
-            item.nama.toLowerCase().includes(keyword) ||
-            item.tipe.toLowerCase().includes(keyword)
+          const matches = this.faskesMarkers.filter(
+            (item) =>
+              item.nama.toLowerCase().includes(keyword) ||
+              item.tipe.toLowerCase().includes(keyword)
           );
 
           if (matches.length === 0) {
@@ -194,7 +208,7 @@ export class MapView {
             return;
           }
 
-          matches.forEach(item => {
+          matches.forEach((item) => {
             const li = L.DomUtil.create("li", "", suggestionList);
             li.textContent = item.nama;
             li.style.cursor = "pointer";

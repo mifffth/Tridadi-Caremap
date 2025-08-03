@@ -39,7 +39,7 @@
         "nama": "Apotek Indika",
         "tipe": "Apotek",
         "lat": -7.713078995307587,
-        "lon":  110.34365256695796
+        "lon": 110.34365256695796
     },
     {
         "nama": "Apotek S3W Farma",
@@ -62,7 +62,7 @@
     {
         "nama": "Klinik Tridadi Peduli Sehat (FKTP Dr. Trisnina)",
         "tipe": "Klinik",
-        "lat": -7.717171725120011, 
+        "lat": -7.717171725120011,
         "lon": 110.34533102046696
     },
     {
@@ -74,25 +74,25 @@
     {
         "nama": "Deeja Clinic",
         "tipe": "Klinik",
-        "lat": -7.7198034064029635, 
+        "lat": -7.7198034064029635,
         "lon": 110.35559901456641
     },
     {
         "nama": "Naavagreen Natural Skincare Sleman",
         "tipe": "Klinik",
-        "lat": -7.72273477327398, 
+        "lat": -7.72273477327398,
         "lon": 110.36195670534018
     },
     {
         "nama": "Puskeswan Sleman dan Melati",
         "tipe": "Puskesmas",
         "lat": -7.699224528558163,
-        "lon":  110.3479725349605
+        "lon": 110.3479725349605
     },
     {
         "nama": "UPT Pengelolaan Obat dan Alat Kesehatan Dinkes Sleman",
         "tipe": "Lainnya",
-        "lat": -7.718190092580714, 
+        "lat": -7.718190092580714,
         "lon": 110.35914470961382
     },
     {
@@ -104,7 +104,7 @@
     {
         "nama": "Posyandu Melati Putih Desa Jaban",
         "tipe": "Posyandu",
-        "lat": -7.7227137131730705, 
+        "lat": -7.7227137131730705,
         "lon": 110.35899028054988
     },
     {
@@ -116,14 +116,14 @@
     {
         "nama": "Bidan Iin Purwaningsih,S.Tr.Keb.Bdn",
         "tipe": "Praktek Mandiri",
-        "lat": -7.717045932368767, 
+        "lat": -7.717045932368767,
         "lon": 110.34389161251956
     },
     {
         "nama": "Bidan Haniyah, Amd Keb",
         "tipe": "Praktek Mandiri",
         "lat": -7.712213745116423,
-        "lon": 110.35347762052567 
+        "lon": 110.35347762052567
     },
     {
         "nama": "Bidan Dyah Ayu S(ꦧꦶꦣꦤ꧀ꦝꦾꦃꦄꦪꦸꦱ꧀)",
@@ -134,19 +134,49 @@
     {
         "nama": "Bidan nia",
         "tipe": "Praktek Mandiri",
-        "lat": -7.700089321250991, 
-        "lon": 110.35063458595039 
+        "lat": -7.700089321250991,
+        "lon": 110.35063458595039
     },
     {
         "nama": "Bidan Fitnianingsih",
         "tipe": "Praktek Mandiri",
-        "lat": -7.718558275073662, 
-        "lon": 110.35876517143126 
+        "lat": -7.718558275073662,
+        "lon": 110.35876517143126
     },
     {
         "nama": "Bidan Iin Purwaningsih,S.Tr.Keb.Bdn",
         "tipe": "Praktek Mandiri",
-        "lat": -7.71703615881407, 
-        "lon": 110.34388709993439 
+        "lat": -7.71703615881407,
+        "lon": 110.34388709993439
+    },
+    {
+        "nama": "Klinik Kembang Arum Medika",
+        "tipe": "Klinik",
+        "lat": -7.714862222083397,
+        "lon": 110.3597056429599
+    },
+    {
+        "nama": "Keiki Kids Jogja",
+        "tipe": "Klinik",
+        "lat": -7.720283770932249,
+        "lon": 110.36471108591284
+    },
+    {
+        "nama": "Klinik Gigi EL DENTAL",
+        "tipe": "Klinik",
+        "lat": -7.720313505790447,
+        "lon": 110.36464674857693
+    },
+    {
+        "nama": "Luma Dental",
+        "tipe": "Klinik",
+        "lat": -7.721420448188482,
+        "lon": 110.36180299569729
+    },
+    {
+        "nama": "Praktik Mandiri Fisioterapi Hasnan Kurnia",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.724145346470307,
+        "lon": 110.35905409371364
     }
 ]
