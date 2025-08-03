@@ -81,9 +81,9 @@ header h1 {
   margin: 0;
 }
 
-nav {
+/* nav {
   margin-top: 0.5rem;
-}
+} */
 
 nav a {
   color: white;
@@ -271,11 +271,10 @@ button {
   .nav-links {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 55px;
     left: 0;
     padding: 0;
     flex-direction: column;
-    background: white;
     width: 100%;
   }
 
