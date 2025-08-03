@@ -1,6 +1,7 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../../styles/map-view.css";
+import { markerIcons } from "../utils/marker-icons";
 
 export class MapView {
   constructor(container) {
@@ -8,6 +9,8 @@ export class MapView {
     this.presenter = null;
     this.map = null;
     this.userMarker = null;
+    this.faskesMarkers = [];
+    this.highlightCircle = null;
   }
 
   setPresenter(presenter) {
@@ -16,9 +19,7 @@ export class MapView {
 
   render() {
     this.container.innerHTML = `
-
       <div id="map-container"></div>
-
     `;
     this.initMap();
   }
@@ -34,14 +35,6 @@ export class MapView {
         14
       );
     }
-
-    const style = document.createElement("style");
-    style.innerHTML = `
-      .leaflet-control-layers-overlays label {
-        text-align: center;
-      }
-    `;
-    document.head.appendChild(style);
 
     L.Marker.prototype.options.icon = L.icon({
       iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
@@ -77,6 +70,7 @@ export class MapView {
 
     this.loadFaskesData(baseLayers);
     this.addLocationControl();
+    this.addSearchControl();
 
     this.map.on("moveend", () => {
       const center = this.map.getCenter();
@@ -91,6 +85,170 @@ export class MapView {
     });
   }
 
+  addSearchControl() {
+    const SearchControl = L.Control.extend({
+      options: {
+        position: "topleft",
+      },
+      onAdd: () => {
+        const container = L.DomUtil.create("div", "leaflet-bar search-container");
+        const button = L.DomUtil.create("button", "leaflet-bar", container);
+        button.innerHTML = '<i class="fa-solid fa-magnifying-glass" style="font-size: 13px;"></i>';
+        button.setAttribute("aria-label", "Cari faskes");
+        button.style.backgroundColor = "white";
+        button.style.color = "black";
+        button.style.padding = "8px";
+        button.style.borderRadius = "4px";
+        button.style.boxShadow = "0 4px 12px rgba(68, 55, 55, 0.1)";
+        button.style.cursor = "pointer";
+
+        const input = L.DomUtil.create("input", "search-input", container);
+        input.type = "text";
+        input.placeholder = "Cari faskes...";
+        input.style.display = "none";
+        input.style.marginLeft = "8px";
+        input.style.padding = "4px";
+
+        const suggestionList = L.DomUtil.create("ul", "search-suggestions", container);
+        suggestionList.style.display = "none";
+
+        let expanded = false;
+
+        const toggleInput = () => {
+          expanded = !expanded;
+          input.style.display = expanded ? "inline-block" : "none";
+          suggestionList.style.display = "none";
+          if (expanded) {
+            input.focus();
+          } else {
+            input.value = "";
+            suggestionList.innerHTML = "";
+          }
+        };
+
+        const doSearch = () => {
+          const keyword = input.value.trim().toLowerCase();
+          if (!keyword) return;
+
+          const results = this.faskesMarkers.filter((item) =>
+            item.nama.toLowerCase().includes(keyword) ||
+            item.tipe.toLowerCase().includes(keyword)
+          );
+
+          if (results.length > 0) {
+            const first = results[0];
+            this.map.setView(first.marker.getLatLng(), 17);
+            first.marker.openPopup();
+
+            if (this.highlightCircle) {
+              this.map.removeLayer(this.highlightCircle);
+            }
+
+            this.highlightCircle = L.circle(first.marker.getLatLng(), {
+              radius: 30,
+              color: "#ff5722",
+              weight: 3,
+              fillColor: "#ff5722",
+              fillOpacity: 0.3,
+            }).addTo(this.map);
+
+            setTimeout(() => {
+              if (this.highlightCircle) {
+                this.map.removeLayer(this.highlightCircle);
+                this.highlightCircle = null;
+              }
+            }, 3000);
+          } else {
+            alert("Faskes tidak ditemukan.");
+          }
+        };
+
+        L.DomEvent.on(button, "click", () => {
+          if (!expanded) {
+            toggleInput();
+          } else {
+            doSearch();
+          }
+        });
+
+        L.DomEvent.on(input, "keydown", (e) => {
+          if (e.key === "Enter") doSearch();
+        });
+
+        L.DomEvent.on(input, "input", () => {
+          const keyword = input.value.trim().toLowerCase();
+          suggestionList.innerHTML = "";
+
+          if (!keyword) {
+            suggestionList.style.display = "none";
+            return;
+          }
+
+          const matches = this.faskesMarkers.filter(item =>
+            item.nama.toLowerCase().includes(keyword) ||
+            item.tipe.toLowerCase().includes(keyword)
+          );
+
+          if (matches.length === 0) {
+            suggestionList.style.display = "none";
+            return;
+          }
+
+          matches.forEach(item => {
+            const li = L.DomUtil.create("li", "", suggestionList);
+            li.textContent = item.nama;
+            li.style.cursor = "pointer";
+            li.style.padding = "4px";
+
+            L.DomEvent.on(li, "click", () => {
+              this.map.setView(item.marker.getLatLng(), 17);
+              item.marker.openPopup();
+
+              if (this.highlightCircle) {
+                this.map.removeLayer(this.highlightCircle);
+              }
+
+              this.highlightCircle = L.circle(item.marker.getLatLng(), {
+                radius: 30,
+                color: "#ff5722",
+                weight: 3,
+                fillColor: "#ff5722",
+                fillOpacity: 0.3,
+              }).addTo(this.map);
+
+              setTimeout(() => {
+                if (this.highlightCircle) {
+                  this.map.removeLayer(this.highlightCircle);
+                  this.highlightCircle = null;
+                }
+              }, 3000);
+
+              suggestionList.innerHTML = "";
+              suggestionList.style.display = "none";
+              input.value = item.nama;
+            });
+          });
+
+          suggestionList.style.display = "block";
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!container.contains(e.target)) {
+            if (expanded) {
+              expanded = false;
+              input.style.display = "none";
+              suggestionList.style.display = "none";
+              input.value = "";
+            }
+          }
+        });
+
+        return container;
+      },
+    });
+    this.map.addControl(new SearchControl());
+  }
+
   async loadFaskesData(baseLayers) {
     try {
       const response = await fetch("./faskes.json");
@@ -100,12 +258,12 @@ export class MapView {
       const faskesData = await response.json();
 
       const orderedFaskesTypes = [
-        { name: "Apotek", color: "#1E88E5" },
-        { name: "Klinik", color: "#43A047" },
-        { name: "Praktek Mandiri", color: "#FFC107" },
-        { name: "Posyandu", color: "#E91E63" },
-        { name: "Puskesmas", color: "#E53935" },
-        { name: "Lainnya", color: "#9C27B0" },
+        { name: "Apotek" },
+        { name: "Klinik" },
+        { name: "Praktek Mandiri" },
+        { name: "Posyandu" },
+        { name: "Puskesmas" },
+        { name: "Lainnya" },
       ];
 
       const overlays = {};
@@ -124,19 +282,16 @@ export class MapView {
         const { tipe, nama, lat, lon } = faskes;
 
         if (faskesLayers[tipe]) {
-          const icon = this.createColoredIcon(faskesLayers[tipe].color);
+          const icon = markerIcons[tipe];
           const marker = L.marker([lat, lon], { icon })
             .bindPopup(`<b>${nama}</b><br>
-                  <b>Tipe:</b> ${tipe} <br>
-                  <b>Koordinat:</b> <a href="https://www.google.com/maps/place/${lat},${
-          lon
-        }" 
-               target="_blank" 
-               rel="noopener">
-              ${lat.toFixed(5)}, ${lon.toFixed(5)}
-            </a>`);
+              <b>Tipe:</b> ${tipe} <br>
+              <b>Koordinat:</b> <a href="https://www.google.com/maps/place/${lat},${lon}" target="_blank">${lat.toFixed(
+            5
+          )}, ${lon.toFixed(5)}</a>`);
 
           faskesLayers[tipe].layer.addLayer(marker);
+          this.faskesMarkers.push({ nama, tipe, marker });
         }
       });
 
@@ -155,43 +310,23 @@ export class MapView {
           return response.json();
         })
         .then((data) => {
-          console.log("GeoJSON data loaded:", data);
-          console.log("Type:", data.type);
-          console.log(
-            "Features count:",
-            data.features?.length || "No features"
-          );
-
           const geojsonLayer = L.geoJSON(data, {
-            style: function (feature) {
-              console.log("Styling feature:", feature);
-              return {
-                color: "#3388ff",
-                weight: 3,
-                opacity: 1,
-                fillOpacity: 0.5,
-              };
-            },
-            onEachFeature: function (feature, layer) {
-              console.log("Feature:", feature);
+            style: () => ({
+              color: "#3388ff",
+              weight: 3,
+              opacity: 1,
+              fillOpacity: 0.5,
+            }),
+            onEachFeature: (feature, layer) => {
               if (feature.properties) {
-                layer.bindPopup("Padukuhan: " + feature.properties.dusun);
+                layer.bindPopup("Padukuhan " + feature.properties.dusun);
               }
             },
           });
 
-          console.log(
-            "GeoJSON Layer created:",
-            geojsonLayer.getLayers().length,
-            "layers"
-          );
-
           layersControl.addOverlay(geojsonLayer, "Padukuhan");
           geojsonLayer.addTo(this.map);
-
-          this.geojsonLayer = geojsonLayer;
         })
-
         .catch((error) =>
           console.error("Error loading the GeoJSON file:", error)
         );
@@ -206,14 +341,14 @@ export class MapView {
       options: {
         position: "topleft",
       },
-      onAdd: (map) => {
+      onAdd: () => {
         const button = L.DomUtil.create("button", "leaflet-bar");
         button.innerHTML =
           '<i class="fa-solid fa-location-dot" style="font-size: 19px;"></i>';
         button.setAttribute("aria-label", "Temukan lokasi saya");
         button.style.backgroundColor = "white";
         button.style.color = "black";
-        button.style.padding = "8px 8px 8px 8px";
+        button.style.padding = "8px";
         button.style.borderRadius = "4px";
         button.style.boxShadow = "0 4px 12px rgba(68, 55, 55, 0.1)";
         button.style.cursor = "pointer";
@@ -253,10 +388,9 @@ export class MapView {
           popupContainer.innerHTML = `
             <b>Lokasi Anda:</b><br>${latitude.toFixed(5)}, ${longitude.toFixed(
             5
-          )}
-            <br><br>
+          )}<br><br>
             <button class="delete-marker-button">Hapus</button>
-        `;
+          `;
 
           const deleteBtn = popupContainer.querySelector(
             ".delete-marker-button"

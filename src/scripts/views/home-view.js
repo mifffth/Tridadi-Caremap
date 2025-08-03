@@ -13,7 +13,7 @@ export class HomeView {
   render() {
     this.container.innerHTML = `
     <div class="hero">
-        <h1 class="text-4xl font-bold">WebGIS Persebaran Fasilitas Kesehatan</h1>
+        <h1 class="text-4xl font-bold">WebGIS Persebaran Fasilitas Kesehatan Tridadi</h1>
     </div>
 
     <div class="welcome-content">
@@ -55,37 +55,37 @@ export class HomeView {
         <div class="gallery">
           ${[
             {
-              src: "/images/foto1.jpg",
+              src: "/images/foto1.webp",
               label: "Klinik Pratama Adera",
               lat: -7.722794283039989,
               lon: 110.36085723820337,
             },
             {
-              src: "/images/foto2.jpg",
+              src: "/images/foto2.webp",
               label: "Apotek Pratama Tridadi",
               lat: -7.719279370082687,
               lon: 110.35429126817726,
             },
             {
-              src: "/images/foto3.jpg",
+              src: "/images/foto3.webp",
               label: "UPTD PSC SLEMAN EMERGENCY SERVICES",
               lat: -7.718408205424657,
               lon: 110.35654876282996,
             },
             {
-              src: "/images/foto4.jpg",
+              src: "/images/foto4.webp",
               label: "Denticia Dental Implant",
               lat: -7.723474790153414,
               lon: 110.36002313622022,
             },
             {
-              src: "/images/foto5.jpg",
+              src: "/images/foto5.webp",
               label: "Posyandu Melati Putih Desa Jaban",
               lat: -7.7227137131730705,
               lon: 110.35899028054988,
             },
             {
-              src: "/images/foto6.jpg",
+              src: "/images/foto6.webp",
               label: "Klinik Tridadi Peduli Sehat (FKTP Dr. Trisnina)",
               lat: -7.716955715479557,
               lon: 110.34536338117213,
@@ -112,7 +112,7 @@ export class HomeView {
     <div class="intro-full-width-container">
         <div class="intro">
             <h3 class="text-2xl font-bold">Mengapa Faskes Penting?</h3>
-            <p>
+            <p class="mt-6">
                 Faskes yang tersebar secara merata dapat meningkatkan akses layanan kesehatan, mengurangi waktu respons
                 darurat, dan mendorong pemerataan kualitas hidup masyarakat. Informasi yang transparan tentang lokasi
                 faskes membantu perencanaan wilayah dan pengambilan keputusan kebijakan publik.

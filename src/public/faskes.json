@@ -112,5 +112,41 @@
         "tipe": "Lainnya",
         "lat": -7.718408205424657,
         "lon": 110.35654876282996
+    },
+    {
+        "nama": "Bidan Iin Purwaningsih,S.Tr.Keb.Bdn",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.717045932368767, 
+        "lon": 110.34389161251956
+    },
+    {
+        "nama": "Bidan Haniyah, Amd Keb",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.712213745116423,
+        "lon": 110.35347762052567 
+    },
+    {
+        "nama": "Bidan Dyah Ayu S(ꦧꦶꦣꦤ꧀ꦝꦾꦃꦄꦪꦸꦱ꧀)",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.706214682375278,
+        "lon": 110.35301396823495
+    },
+    {
+        "nama": "Bidan nia",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.700089321250991, 
+        "lon": 110.35063458595039 
+    },
+    {
+        "nama": "Bidan Fitnianingsih",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.718558275073662, 
+        "lon": 110.35876517143126 
+    },
+    {
+        "nama": "Bidan Iin Purwaningsih,S.Tr.Keb.Bdn",
+        "tipe": "Praktek Mandiri",
+        "lat": -7.71703615881407, 
+        "lon": 110.34388709993439 
     }
 ]
