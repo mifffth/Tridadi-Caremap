@@ -126,7 +126,7 @@ export class HomeView {
 
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
         <div class="relative">
-            <img id="modal-image" loading="lazy" src="" alt="Preview" class="max-h-[90vh] rounded-xl shadow-lg">
+            <img id="modal-image" src="" alt="Preview" class="max-h-[90vh] rounded-xl shadow-lg">
             <button id="modal-close" class="absolute top-2 right-2 bg-white rounded-full p-1 hover:bg-gray-200 text-black">
                 ✕
             </button>
