@@ -211,7 +211,7 @@ export class HomeView {
           onEachFeature: function (feature, layer) {
             console.log("Feature:", feature);
             if (feature.properties) {
-              layer.bindPopup("Padukuhan: " + feature.properties.dusun);
+              layer.bindPopup("Padukuhan " + feature.properties.dusun);
             }
           },
         });
