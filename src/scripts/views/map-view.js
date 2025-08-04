@@ -326,7 +326,7 @@ export class MapView {
         .then((data) => {
           const geojsonLayer = L.geoJSON(data, {
             style: () => ({
-              color: "#3388ff",
+              color: "#00cccc",
               weight: 3,
               opacity: 1,
               fillOpacity: 0.5,

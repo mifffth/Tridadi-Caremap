@@ -202,7 +202,7 @@ export class HomeView {
           style: function (feature) {
             console.log("Styling feature:", feature);
             return {
-              color: "#3388ff",
+              color: "#00cccc",
               weight: 3,
               opacity: 1,
               fillOpacity: 0.5,

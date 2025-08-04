@@ -14,7 +14,7 @@ export const markerIcons = {
     shadowAnchor: [12, 41],
   }),
   Klinik: L.icon({
-    iconUrl: `${baseUrl}/img/marker-icon-blue.png`,
+    iconUrl: `${baseUrl}/img/marker-icon-grey.png`,
     shadowUrl: `${baseUrl}/img/marker-shadow.png`,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
@@ -41,7 +41,7 @@ export const markerIcons = {
     shadowAnchor: [12, 41],
   }),
   Puskesmas: L.icon({
-    iconUrl: `${baseUrl}/img/marker-icon-violet.png`,
+    iconUrl: `${baseUrl}/img/marker-icon-blue.png`,
     shadowUrl: `${baseUrl}/img/marker-shadow.png`,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
