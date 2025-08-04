@@ -1,13 +1,5 @@
 import * as css from '../styles/styles.css';
 
-import { HomeView } from './views/home-view.js';
-import { MapView } from './views/map-view.js';
-import { CreditView } from './views/credit-view.js';
-
-import { HomePresenter } from './presenters/home-presenter.js';
-import { MapPresenter } from './presenters/map-presenter.js';
-import { CreditPresenter } from './presenters/credit-presenter.js';
-
 const main = document.querySelector('main');
 const navbar = document.getElementById('main-nav');
 const menuToggle = document.getElementById('menu-toggle');
@@ -69,13 +61,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/sw.bundle.js").then(() => {
-            console.log("Service Worker registered.");
-          });
-        });
-      } else {
-        console.log("Service Worker is not supported by this browser.");
-      }
+    // if ("serviceWorker" in navigator) {
+    //     window.addEventListener("load", () => {
+    //       navigator.serviceWorker.register("/sw.bundle.js").then(() => {
+    //         console.log("Service Worker registered.");
+    //       });
+    //     });
+    //   } else {
+    //     console.log("Service Worker is not supported by this browser.");
+    //   }
 });
