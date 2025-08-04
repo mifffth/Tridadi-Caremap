@@ -12,7 +12,7 @@ export class HomeView {
 
   render() {
     this.container.innerHTML = `
-    <div class="hero">
+    <div class="hero flex justify-center items-center text-center px-4 py-8">
         <h1 class="text-4xl font-bold">WebGIS Persebaran Fasilitas Kesehatan Tridadi</h1>
     </div>
 
