@@ -191,7 +191,6 @@ main {
   padding-right: 50px;
 }
 
-
 .nav-links {
   display: flex;
   gap: 1rem;
@@ -268,6 +267,14 @@ button {
     font-size: 1rem;
   }
 
+  .site-title {
+    font-size: 1rem;
+    font-weight: bold;
+    inline-size: none;
+    white-space: nowrap;
+    padding-right: 50px;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -284,7 +291,7 @@ button {
   .nav-links {
     display: none;
     position: absolute;
-    top: 55px;
+    top: 50px;
     left: 0;
     padding: 0;
     flex-direction: column;

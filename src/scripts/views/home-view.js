@@ -120,7 +120,7 @@ export class HomeView {
         </div>
     </div>
 
-    <h2 class="text-2xl font-bold text-center mb-8 mt-8">Statistik Fasilitas Kesehatan Tridadi</h2>
+    <h2 class="text-2xl font-bold text-center mb-8 mt-8">Statistik Fasilitas Kesehatan di Kalurahan Tridadi</h2>
 
     <div id="chart"></div>
 
